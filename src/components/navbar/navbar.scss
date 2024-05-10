@@ -1,0 +1,125 @@
+@import "../../responsive.scss";
+
+nav{
+    height: 100px;
+    // change to one line
+    display: flex;
+    // space between 2 words
+    justify-content: space-between;
+    align-items: center;
+
+    a{
+        transition: all 0.4s ease;
+
+        @include sm{
+            display: none;
+        }
+
+        &:hover{
+            scale: 1.05;
+        }
+    }
+
+
+    .left{
+        flex: 3;
+        display: flex;
+        align-items: center;
+        // space between each by each
+        gap: 50px;
+
+        .logo{
+            font-weight: bold;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            img{
+                width: 38px;
+            }
+
+            .logoword{
+                color: #7a7256;
+            }
+
+            span{
+                @include md{
+                    display: none;
+                }
+                @include sm{
+                    display: initial;
+                }
+            }
+        
+        }
+    }
+    .right{
+        flex: 2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background-color: #fcf5f3;
+        height: 100%;
+
+        @include md{
+            background-color: transparent;
+        }
+        
+        a{
+            padding: 12px 24px;
+            margin: 20px;
+        }
+
+        .register{
+            background-color: #e0aa14;
+        }
+
+        .menuIcon{
+            display: none;
+            // to transparent icon
+            z-index: 999;
+
+            @include sm {
+                display: initial;
+            }
+
+            img{
+                width: 36px;
+                height: 36px;
+                cursor: pointer;
+            }
+        }
+
+        .menu{
+            // not to duplicate
+            position: absolute;
+            top: 0;
+            right: -50%;
+            background-color: black;
+            color: white;
+            height: 100vh;
+            width: 50%;
+            // menu open time will long 1s
+            transition: all 0.5s ease;
+            //to show all word
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            //all content to center
+            justify-content: center;
+            font-size: 16px;
+
+            &.active{
+                right: 0;
+            }
+
+            @include sm {
+                a{
+                    display: initial;
+                }
+            }
+        }
+
+    }
+}
